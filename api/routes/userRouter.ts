@@ -256,7 +256,7 @@ userRouter.use("/register", async function (req, res) {
 
             console.log(req.body)
             client
-                .db("broker")
+                .db(dbname)
                 .collection("admins")
                 .insertOne({
                     username: req.body.username,
@@ -384,7 +384,7 @@ userRouter.use("/removeProposal", async function (req, res) {
                 return console.log(err);
             }
             console.log(req.body.id)
-            // await client.db("broker").collection("deposits").findOne({ id: req.body.id }).then((data) => { }
+            // await client.db(dbname).collection("deposits").findOne({ id: req.body.id }).then((data) => { }
             await client.db(dbname).collection("deposits").deleteOne({ username: req.body.username }).then((data) => {
                 console.log(data)
             })
@@ -419,7 +419,7 @@ userRouter.use("/declineProposal", async function (req, res) {
                 return console.log(err);
             }
             console.log(req.body.id)
-            // await client.db("broker").collection("deposits").findOne({ id: req.body.id }).then((data) => { }
+            // await client.db(dbname).collection("deposits").findOne({ id: req.body.id }).then((data) => { }
             await client.db(dbname).collection("deposits").deleteOne({ username: req.body.username }).then((data) => {
                 console.log(data)
             })
@@ -452,7 +452,7 @@ userRouter.use("/state", async function (req, res) {
                 return console.log(err);
             }
             let data: { id: number } = req.body
-            // await client.db("broker").collection("deposits").findOne({ id: req.body.id }).then((data) => { }
+            // await client.db(dbname).collection("deposits").findOne({ id: req.body.id }).then((data) => { }
             // await client.db(dbname).collection("steps").drop()
             return await client.db(dbname)
                 .collection("steps")
