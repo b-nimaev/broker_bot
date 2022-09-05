@@ -11,6 +11,7 @@
     "yookassa": "^0.1.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.5.0",
     "@types/express": "^4.17.13",
     "@types/localtunnel": "^2.0.1",
     "@types/node": "^17.0.42",

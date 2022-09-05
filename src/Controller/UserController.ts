@@ -10,6 +10,9 @@ interface DocumentForCoins extends WithId<Document> {
 }
 
 export const registerUser = async function (update) {
+
+    update.balance = 0
+
     try {
         await client.connect()
         return await client.db(dbname)
